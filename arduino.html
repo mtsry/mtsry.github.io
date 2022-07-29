@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+
+<title>mtsry's Compendium - Vijver</title>
+<meta name="description" content="Information on ponds.">
+<meta name="keywords" content="mtsry, compendium, information, vijver, goudvis, pond, goldfish, koi">
+<meta name="robots" content="noindex">
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+
+<body>
+<div id="page">
+
+<div id="header">
+  <h2>
+    <a href="index.html">Home</a> &nbsp;&nbsp;&nbsp;&nbsp; 
+    <A HREF="vijver.html">Vijver</A> &nbsp;&nbsp;&nbsp;&nbsp;
+    <A HREF="koi.html">Koi</A> &nbsp;&nbsp;&nbsp;&nbsp;
+    Techniek &nbsp;&nbsp;&nbsp;&nbsp;
+    <A HREF="waterkwaliteit.html">Waterkwaliteit</A> &nbsp;&nbsp;&nbsp;&nbsp;
+    <A HREF="verzorging.html">Verzorging</A> &nbsp;&nbsp;&nbsp;&nbsp;
+    <A HREF="varia.html">Varia</A>
+  </h2>
+</div>
+
+<div id="menu">
+<p style="margin-top: 0px;"><a href="techniek.html">Techniek</a></p>
+<p style="margin-top: 0px;"><a href="arduino.html">Arduino</a></p>
+</div>
+
+<div id="content">
+<h2><a name="Arduino"></a>Arduino</h2>
+<p>Arduino is een opensource-computerplatform om op een eenvoudige manier microcontrollers allerlei taken te laten uitvoeren. 
+Standaard is bv. de Arduino UNO reeds uitgerust met digitale en analoge in- en uitgangen, 
+maar door middel van enerzijds uitbreidingskaarten (EN: shield) en anderzijds uitbreidingsprintplaatjes opgebouwd rond een bepaalde sensor (EN: breakout board) nemen de mogelijkheden enorm toe.</p>
+<p>Een Koi Pond monitor is dan ook een logische uitdaging.</p>
+<p><img src="./pictures/arduino.png"></p>
+<p>Vooreerst dienen de te meten parameters opgelijst te worden:
+<ul><li>Watertemperatuur</li>
+<li>Omgevingstemperatuur</li>
+<li>Waterniveau</li>
+<li>...</li></ul></p>
+<p>De DS18B20 is een temperatuurssensor die gebruik maakt van het 1-wire protocol en bestaat in waterdichte uitvoering met een kabellengte van 3 m. 
+Door het eigen adresseringssysteem kunnen meerdere sensoren parallel geschakeld worden op dezelfde bus d.w.z. zonder extra digitale in- en uitgangen te gebruiken. 
+Naast de voor de hand liggende watertemperatuur kan zo ook de omgevingstemperatuur gemeten worden wanneer men de sensor afschermt tegen de regen.</p>
+<p><img src="./pictures/DS18B20.jpg"></p>
+<p>In plaats van het voortschrijdend gemiddelde om de opeenvolgende temperatuursmetingen uit te middelen/dempen, wordt een exponentieel filter gebruikt. 
+Dit is een recursief filter waarbij de nieuwe temperatuur berekend wordt op basis van de vorige berekende waarde en de nieuwe gemeten waarde. 
+Beide methodes tonen een gelijkaardig gedrag maar het exponentieel filter is eenvoudiger te implementeren.</p>
+<p>Het Ethernet shield gebaseerd op de W5100 Ethernet chip laat toe om uw Arduino UNO op uw computernetwerk aan te sluiten via een RJ45-kabel. De SD-functionaliteit zal in deze toepassing niet gebruikt worden. 
+Uiteraard bestaat er een gelijkaardige oplossing via Wi-Fi.</p>
+<p><img src="./pictures/W5100.jpg"></p>
+
+
+<p><A HREF="#Arduino"><img src="./pictures/return.png" alt="Return button"/></A></p>
+
+</div>
+<div id="footer"><p><br>Last update: October 25, 2020</p></div>
+</div>
+</body></html>
