@@ -98,6 +98,15 @@ img {
   font-size:100%;
 }
 
+#content table {
+  border:1px solid;
+}
+
+#content td {
+  border:1px solid;
+  padding:10px;
+}
+
 #footer { 
   clear:both;  
   width:980px;
