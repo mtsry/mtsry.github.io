@@ -138,12 +138,15 @@
 </table>
 
 <p><A HREF="#koicafe"><img src="./pictures/return.png" alt="Return button"/></A></p>
+<p>&nbsp;</p>
 
 <h2><a name="controller2"></a>Koi Caf&eacute controller 2.0</h2>
 
 <p>Arduino Mega als timer voor het Koi Café voederapparaat</p>
 
-<p><h3>Componenten</h3>
+<p><br></p>
+<h3>Componenten</h3>
+<p>
   <ul>
     <li>Arduino Mega</li>
     <li>W5100 Ethernet shield</li>
@@ -157,10 +160,36 @@
 <p><img src="./pictures/2022-09-04.jpg"><br>
 (4 september 2022)</p>
 
+<p><br></p>
+<h3>Instructies</h3>
+
+<p>In het geval van de Arduino Mega is de URL het LAN IP adres. 
+Door gebruik te maken van de optionele query string (volgend op het vraagteken) kunnen ‘instructies’ doorgegeven worden aan de Ethernet client. 
+Enkelvoudige instructies maken enkel gebruik van de ‘parameter’ syntax, 
+en met de ‘parameter=waarde’ syntax kunnen waarden aan variabelen toegekend worden.</p>
+<p style="font-family:'Courier New', Courier, monospace;">192.168.1.128/?HAND_FEEDING<br>
+192.168.1.128/?FEEDING_DURATION=1800</p>
+
+<p>De tabel geeft een overzicht van de 'instructies' met betrekking tot het automatisch voederen.</p>
+
+<table style="font-family:'Courier New', Courier, monospace;"><tr><td>
+FEEDING_PROGRAM=&lt;value&gt;<br>
+FEEDING_TIME_OFFSET=&lt;value&gt;<br>
+FEEDING_DURATION=&lt;value&gt;<br>
+HAND_FEEDING<br>
+AUTOMATIC_FEEDING<br>
+PROGRAM_START_TIME=&lt;value&gt;<br>
+PROGRAM_END_TIME=&lt;value&gt;<br>
+PROGRAM_NUMBER_FEEDINGS=&lt;value&gt;<br>
+TEST_FEEDING=&lt;value&gt;
+</td></tr></table>
+
+<p>De actuele instellingen van de Koi Caf&eacute controller zijn beschikbaar via de web server.</p>
+<p><img style="border:1px solid RGB(80,85,60)" src="./pictures/controller.png"></p>
 
 
 <p><A HREF="#koicafe"><img src="./pictures/return.png" alt="Return button"/></A></p>
 </div>
-<div id="footer"><p><br>Last update: September 04, 2022</p></div>
+<div id="footer"><p><br>Last update: September 07, 2022</p></div>
 </div>
 </body></html>
