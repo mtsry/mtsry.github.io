@@ -36,8 +36,10 @@
 <div id="content">
 <h2><a name="koicafe"></a>Koi Caf&eacute controller 1.0</h2>
 
-<p>Arduino Nano als timer voor het Koi Caf&eacute voederapparaat</p>
-<p><img src="./pictures/koicafe.jpg" width=200></p>
+<p>Als alternatief voor de bijgeleverde timer kan een Arduino Nano als timer voor het Koi Caf&eacute voederapparaat gebruikt worden. 
+Door de programmatie kunnen een aantal voederschema's vooraf gedefinieerd worden en kan de tijdsduur van elke voederbeurt op een eenvoudige manier gewijzigd worden. 
+En met de nodige uitbreidingen kan zelfs het relais vervangen worden door een MOSFET als schakelelement.</p>
+<p><img src="./pictures/koicafe.jpg" width=250></p>
 
 <p><br></p>
 <p><h3>Componenten</h3>
@@ -167,13 +169,13 @@ Dit geeft dan weer extra mogelijkheden om de controller vanop afstand aan te stu
 <h3>Instructies</h3>
 
 <p>In het geval van de Arduino Mega is de URL het LAN IP adres. 
-Door gebruik te maken van de optionele query string (volgend op het vraagteken) kunnen ‘instructies’ doorgegeven worden aan de Ethernet client. 
+Door gebruik te maken van de optionele query string (volgend op het vraagteken) kunnen instructies doorgegeven worden aan de Ethernet client. 
 Enkelvoudige instructies maken enkel gebruik van de ‘parameter’ syntax, 
 en met de ‘parameter=waarde’ syntax kunnen waarden aan variabelen toegekend worden.</p>
 <p style="font-family:'Courier New', Courier, monospace;">192.168.1.128/?HAND_FEEDING<br>
 192.168.1.128/?FEEDING_DURATION=1800</p>
 
-<p>De tabel geeft een overzicht van de 'instructies' met betrekking tot het voederen.</p>
+<p>De tabel geeft een overzicht van de instructies met betrekking tot het voederen.</p>
 
 <table style="font-family:'Courier New', Courier, monospace;"><tr><td>
 FEEDING_PROGRAM=&lt;value&gt;<br>
@@ -187,12 +189,21 @@ PROGRAM_NUMBER_FEEDINGS=&lt;value&gt;<br>
 TEST_FEEDING=&lt;value&gt;
 </td></tr></table>
 
-<p>De actuele instellingen van de Koi Caf&eacute controller zijn beschikbaar via de web server.</p>
+<p>Met de <span style="font-family:'Courier New', Courier, monospace;">FEEDING_PROGRAM</span> instructie kan gekozen worden tussen de 8 voorgeprogrammeerde voederschema's genummerd van 0 tot en met 7. 
+Voederprogramma 8 is vrij instelbaar d.w.z. men kan het tijdstip van de eerste voederbeurt ingeven met <span style="font-family:'Courier New', Courier, monospace;">PROGRAM_START_TIME</span>, 
+het tijdstip van de laatste voederbeurt met <span style="font-family:'Courier New', Courier, monospace;">PROGRAM_END_TIME</span> en het aantal voederbeurten met 
+<span style="font-family:'Courier New', Courier, monospace;">PROGRAM_NUMBER_FEEDINGS</span>. De nodige voederbeurten worden vervolgens gelijkmatig verdeeld over de totale periode.</p>  
+<p>Om te vermijden dat de koi de 'gewoonte' aanleren om op vaste tijdstippen eten te krijgen, is er de mogelijkheid om een random variatie van bv. maximaal 15 minuten (zowel vroeger als later)  
+op te leggen met de <span style="font-family:'Courier New', Courier, monospace;">FEEDING_TIME_OFFSET</span> instructie. 
+Deze random variaties worden elke dag om middernacht bepaald en wijzigen niet gedurende de dag opdat men de voedermomenten kan opvolgen.</p>
+<p>Met <span style="font-family:'Courier New', Courier, monospace;">TEST_FEEDING</span> kan het tijdstip opgelegd worden van een test voederbeurt waarna het voorgaande voederprogramma wordt verdergezet.</p>
+
+<p>De actuele instellingen van de Koi Caf&eacute controller zijn voortdurend beschikbaar via de web server.</p>
 <p><img style="border:1px solid RGB(80,85,60)" src="./pictures/controller.png"></p>
 
 
 <p><A HREF="#koicafe"><img src="./pictures/return.png" alt="Return button"/></A></p>
 </div>
-<div id="footer"><p><br>Last update: September 07, 2022</p></div>
+<div id="footer"><p><br>Last update: September 09, 2022</p></div>
 </div>
 </body></html>
