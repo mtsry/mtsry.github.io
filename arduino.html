@@ -46,20 +46,34 @@ maar door middel van enerzijds uitbreidingskaarten (EN: shield) en anderzijds ui
 <li>Waterniveau</li>
 <li>...</li></ul></p>
 <p>De DS18B20 is een temperatuurssensor die gebruik maakt van het 1-wire protocol en bestaat in waterdichte uitvoering met een kabellengte van 3 m. 
-Door het eigen adresseringssysteem kunnen meerdere sensoren parallel geschakeld worden op dezelfde bus d.w.z. zonder extra digitale in- en uitgangen te gebruiken. 
-Naast de voor de hand liggende watertemperatuur kan zo ook de omgevingstemperatuur gemeten worden wanneer men de sensor afschermt tegen de regen.</p>
+Door het eigen adresseringssysteem kunnen meerdere sensoren parallel geschakeld worden op dezelfde bus d.w.z. zonder extra digitale in- en uitgangen te gebruiken. </p>
 <p><img src="./pictures/DS18B20.jpg"></p>
-<p>In plaats van het voortschrijdend gemiddelde om de opeenvolgende temperatuursmetingen uit te middelen/dempen, wordt een exponentieel filter gebruikt. 
-Dit is een recursief filter waarbij de nieuwe temperatuur berekend wordt op basis van de vorige berekende waarde en de nieuwe gemeten waarde. 
+<p>Naast de voor de hand liggende watertemperatuur kan zo ook de omgevingstemperatuur gemeten worden wanneer men de sensor afschermt van de zon en tegen de regen.</p>
+<p><img src="./pictures/radiation_shield.jpg" height=355></p>
+<p>In plaats van het voortschrijdend gemiddelde om de opeenvolgende temperatuursmetingen uit te middelen/dempen, wordt een <A HREF="#exponential_filter">exponentieel filter</A> gebruikt. 
 Beide methodes tonen een gelijkaardig gedrag maar het exponentieel filter is eenvoudiger te implementeren.</p>
 <p>Het Ethernet shield gebaseerd op de W5100 Ethernet chip laat toe om uw Arduino UNO op uw computernetwerk aan te sluiten via een RJ45-kabel. De SD-functionaliteit zal in deze toepassing niet gebruikt worden. 
 Uiteraard bestaat er een gelijkaardige oplossing via Wi-Fi.</p>
 <p><img src="./pictures/W5100.jpg"></p>
 
+<p><A HREF="#Arduino"><img src="./pictures/return.png" alt="Return button"/></A></p>
+<p>&nbsp;</p>
+
+<h3><a name="exponential_filter"></a>Annex - Exponential filter</h3>
+<p>An exponential filter is a recursive filter i.e. the new value y<sub>n</sub> is based on the previous value y<sub>n-1</sub> and a new reading/measurement x<sub>n</sub> (after time step &Delta;t).</p>
+<p>y<sub>n</sub> = &alpha; x<sub>n</sub> + (1 - &alpha;) y<sub>n-1</sub></p>
+<p>with smoothing factor/coefficient &alpha;. </p>
+<p>The first value is obtained as (i.e. initialization)</p>
+<p>y<sub>1</sub> = x<sub>1</sub>.</p>
+<p>In comparison with a moving average, both methods show roughly the same distribution in error when</p>
+<p>&alpha; = 2 / (N + 1)</p>
+<p>with the number of readings N used in the calculation of the moving average (i.e. mean of the last N readings).</p>
+<p>For a moving average over 10 measurements, an equivalent smoothing factor of &alpha; = 0.1818 needs to be used. 
+The advantage of an exponential filter compared to a moving average filter is that no array of readings needs to be stored. </p>
 
 <p><A HREF="#Arduino"><img src="./pictures/return.png" alt="Return button"/></A></p>
 
 </div>
-<div id="footer"><p><br>Last update: October 25, 2020</p></div>
+<div id="footer"><p><br>Last update: September 14, 2022</p></div>
 </div>
 </body></html>
