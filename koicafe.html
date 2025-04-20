@@ -186,17 +186,44 @@ AUTOMATIC_FEEDING<br>
 PROGRAM_START_TIME=&lt;value&gt;<br>
 PROGRAM_END_TIME=&lt;value&gt;<br>
 PROGRAM_NUMBER_FEEDINGS=&lt;value&gt;<br>
-TEST_FEEDING=&lt;value&gt;
+TEST_FEEDING=&lt;value&gt;<br>
+REST_DAY=&lt;value&gt;
 </td></tr></table>
 
-<p>Met de <span style="font-family:'Courier New', Courier, monospace;">FEEDING_PROGRAM</span> instructie kan gekozen worden tussen de 8 voorgeprogrammeerde voederschema's genummerd van 0 tot en met 7. 
-Voederprogramma 8 is vrij instelbaar d.w.z. men kan het tijdstip van de eerste voederbeurt ingeven met <span style="font-family:'Courier New', Courier, monospace;">PROGRAM_START_TIME</span>, 
+<p>Met de <span style="font-family:'Courier New', Courier, monospace;">FEEDING_PROGRAM</span> instructie kan gekozen worden tussen de 8 voorgeprogrammeerde voederschema's genummerd van 2 tot en met 9. Het nummer van het voederschema komt nu overeen met het aantal voederbeurten (geen DIP Switch meer).
+Voederprogramma 1 is vrij instelbaar d.w.z. men kan het tijdstip van de eerste voederbeurt ingeven met <span style="font-family:'Courier New', Courier, monospace;">PROGRAM_START_TIME</span>, 
 het tijdstip van de laatste voederbeurt met <span style="font-family:'Courier New', Courier, monospace;">PROGRAM_END_TIME</span> en het aantal voederbeurten met 
 <span style="font-family:'Courier New', Courier, monospace;">PROGRAM_NUMBER_FEEDINGS</span>. De nodige voederbeurten worden vervolgens gelijkmatig verdeeld over de totale periode.</p>  
 <p>Om te vermijden dat de koi de 'gewoonte' aanleren om op vaste tijdstippen eten te krijgen, is er de mogelijkheid om een random variatie van bv. maximaal 15 minuten (zowel vroeger als later)  
 op te leggen met de <span style="font-family:'Courier New', Courier, monospace;">FEEDING_TIME_OFFSET</span> instructie. 
 Deze random variaties worden elke dag om middernacht bepaald en wijzigen niet gedurende de dag opdat men de voedermomenten kan opvolgen.</p>
 <p>Met <span style="font-family:'Courier New', Courier, monospace;">TEST_FEEDING</span> kan het tijdstip opgelegd worden van een test voederbeurt waarna het voorgaande voederprogramma wordt verdergezet.</p>
+<p>En de koi een dagje rust gunnen, kan met <span style="font-family:'Courier New', Courier, monospace;">REST_DAY</span>.</p>
+
+<table>
+  <tr>
+    <td>REST_DAY</td>
+	<td>Rustdag</td>
+  </tr>
+  <tr>
+    <td>0<br>
+	1<br>
+	2<br>
+	3<br>
+	4<br>
+	5<br>
+	6<br>
+	7</td>
+	<td>Geen rustdag<br>
+	Zondag<br>
+	Maandag<br>
+	Dinsdag<br>
+	Woensdag<br>
+	Donderdag<br>
+	Vrijdag<br>
+	Zaterdag</td>
+  </tr>
+</table>
 
 <p>De actuele instellingen van de Koi Caf&eacute controller zijn voortdurend beschikbaar via de web server.</p>
 <p><img style="border:1px solid RGB(80,85,60)" src="./pictures/controller.png"></p>
@@ -204,6 +231,6 @@ Deze random variaties worden elke dag om middernacht bepaald en wijzigen niet ge
 
 <p><A HREF="#koicafe"><img src="./pictures/return.png" alt="Return button"/></A></p>
 </div>
-<div id="footer"><p><br>Last update: May 08, 2023</p></div>
+<div id="footer"><p><br>Last update: December 24, 2024</p></div>
 </div>
 </body></html>
